@@ -1,11 +1,11 @@
 body{
     font-family: 'Courier New', Courier, monospace;
-    background-color: lightgrey;
+    background-color: whitesmoke;
 }
 
 h1, h2{
     text-align: center;
-    color: maroon;
+    color: red;
     margin: auto;
     border: 2px;
     padding: 2px;
@@ -21,13 +21,12 @@ p{
     padding: 3px;
     position: relative;
     left: 5%;
-    background-color: blanchedalmond;
     color: red;
     text-transform: capitalize;
     cursor: pointer;
 }
 
-nav>a{
+nav>{
     display: inline-block;
     position: relative;
     top: 10px;
@@ -36,11 +35,6 @@ nav>a{
     border: 1px dotted black;
     text-align: center;
     font-size: large;
-    color:maroon;
+    color:red;
     cursor: pointer;
-}
-
-nav>a:hover{
-    color: red;
-    background-color:black;
 }

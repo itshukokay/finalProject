@@ -26,15 +26,13 @@ p{
     cursor: pointer;
 }
 
-nav>{
+nav{
     display: inline-block;
     position: relative;
     top: 10px;
     margin: 2px;
     padding: 2px;
-    border: 1px dotted black;
     text-align: center;
     font-size: large;
-    color:red;
     cursor: pointer;
 }

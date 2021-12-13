@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Motorsport System</title>
-    <link rel="stylesheet" href="../public/css/style_index.css">
- 
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Motorsport </title>
+        <link rel="apple-touch-icon" sizes="180x180" href="../public/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../public/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../public/img/favicon-16x16.png">
+        <link rel="manifest" href="../public/img/site.webmanifest">
+        <link rel="stylesheet" href="../public/css/style_index.css">
+     
+    </head>
 <body>
     <header>
         <h1>Motorsport Inventory</h1>
@@ -25,6 +29,7 @@
             <h2>Race Results</h2>
             <p>Your system will include your own team standings.<br>The following example database is populated with results from Scuderia Ferrari and the 2021 Formula 1 World Championship.</p>
             <hr>
+            <img id="teamlogo" src="../public/img/ferrari.png" style="float:right" width="20%"/>
             <p>Click VIEW below to view results for the 2021 season:</p>
             <div id="main" class="card card-body">
               <form class="form-inline mb-3" action="/readresults" method="get" id="CRUDread">

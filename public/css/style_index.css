@@ -1,4 +1,4 @@
-nav{
+a:link{
     color: red;
 }
 
@@ -37,4 +37,14 @@ th {
 
 tr:hover {
     background-color:lightgray;
+}
+
+#teamlogo {
+    margin: 25px;
+}
+
+#infologo {
+    -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+    box-shadow: 5px 5px 15px 5px #000000;
+    margin: 25px;
 }

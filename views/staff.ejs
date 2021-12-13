@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Motorsport System</title>
-    <link rel="stylesheet" href="../public/css/style_index.css">
- 
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Motorsport </title>
+        <link rel="apple-touch-icon" sizes="180x180" href="../public/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../public/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../public/img/favicon-16x16.png">
+        <link rel="manifest" href="../public/img/site.webmanifest">
+        <link rel="stylesheet" href="../public/css/style_index.css">
+     
+    </head>
 <body>
     <header>
         <h1>Motorsport Inventory</h1>
@@ -25,6 +29,7 @@
             <h2>Staff</h2>
             <p>Your system will include your own team information.<br>The following example database is populated with staff from the McLaren F1 Team.</p>
             <hr>
+            <img id="teamlogo" src="../public/img/mclaren.png" style="float:right" width="30%"/>
             <p>Click VIEW below to view all team and staff members:</p>
             <div id="main" class="card card-body">
               <form class="form-inline mb-3" action="/readstaff" method="get" id="CRUDread">
@@ -64,6 +69,19 @@
                 <br>
                 <label for="staffNewEmailUpdate">Enter new email address: </label>
                 <input type="text" name="staffNewEmailUpdate" placeholder="example@mclaren.com" size="50" required autocomplete="off" class="form-control mr-2"/>
+                <br>
+                <input type="submit" value="SUBMIT" class="btn btn-dark" />
+                <input type="reset" value="RESET" class="btn btn-dark" />
+              </form>
+            </div>
+          </div>
+
+          <div class="container">
+            <h3>Delete Staff Entry</h3>
+            <div id="main" class="card card-body">
+              <form action="/deletestaff" method="post" id="CRUDdelete" class="crud">
+                <label for="StaffID">Enter Staff ID: </label>
+                <input type="text" name="StaffID" placeholder="ID to remove" size="50" required autocomplete="off" class="form-control mr-2"/>
                 <br>
                 <input type="submit" value="SUBMIT" class="btn btn-dark" />
                 <input type="reset" value="RESET" class="btn btn-dark" />

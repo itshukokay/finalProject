@@ -115,7 +115,7 @@ app.post("/insertstaff", (req, res) => {
     if (err) {
       throw err;
     }
-    res.send(`Staff entry was inserted to the database. Click <a href="./../readStaff">here</a> to view all staff.`);
+    res.send(`Staff entry was inserted to the database. Click <a href="./../readStaff">here</a> to view all current staff.`);
   });
 });
 
@@ -126,7 +126,18 @@ app.post("/updatestaff", (req, res) => {
     if (err) {
       throw err;
     }
-    res.send(`Staff entry was updated in the database. Click <a href="./readStaff">here</a> to view all staff.`);
+    res.send(`Staff entry was updated in the database. Click <a href="./readStaff">here</a> to view all current staff.`);
+  });
+});
+
+//delete staff
+app.post("/deletestaff", (req, res) => {
+  let sql = `DELETE from project.staff WHERE StaffID = ${req.body.StaffID}`;
+  db.query(sql, (err, result) => {
+    if (err) {
+      throw err;
+    }
+    res.send(`Staff entry was removed from the database. Click <a href="./readStaff">here</a> to view all current staff.`);
   });
 });
 

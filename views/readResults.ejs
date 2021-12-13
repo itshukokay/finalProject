@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motorsport </title>
+    <link rel="stylesheet" href="../public/css/style_index.css">
+ 
+</head>
+<body>
+    <header>
+        <h1>Motorsport Inventory</h1>
+        <nav id="nav_bar">
+            <menu>
+                <div><a href="./index">Home</a> | <a href="./staff">Staff</a> | <a href="./inventory">Inventory</a> | <a href="./results">Results</a> | <a href="./info">Information</a></div>
+            </menu>
+        </nav>
+    </header>
+    <hr>
+
+
+    <div>
+      <h2>Race Results:</h2>
+      <div>
+        <table>  
+          <thead>  
+              <tr>  
+                <th>ID</th>  
+                <th>Race</th>
+                <th>Leclerc-16<br>Qualifying</th>
+                <th>Leclerc-16<br>Race</th>
+                <th>Leclerc-16<br>Points</th>
+                <th>Sainz-55<br>Qualifying</th>
+                <th>Sainz-55<br>Race</th>
+                <th>Sainz-55<br>Points</th>
+              </tr>  
+          </thead>  
+           <tbody>  
+            <%data.forEach((item)=>{%>
+              <tr>  
+                <td><%=item.raceID%></td>
+                <td><%=item.raceName%></td>
+                <td><%=item.quali16%></td>
+                <td><%=item.race16%></td>
+                <td><%=item.points16%></td>
+                <td><%=item.quali55%></td>
+                <td><%=item.race55%></td>
+                <td><%=item.points55%></td>
+              </tr>                                   
+           <%});%>
+           </tbody>
+        </table>
+      </div>
+    </div>
+
+  <p>DNF = Did not finish<br>DNS = Did not start<br>DSQ = Disqualified</p>
+
+  </body>
+
+  <br>
+  <hr>
+  <footer>
+      &copy; Copyright: Michal Huk, 2021
+      <br>
+       <a href="https://www.linkedin.com/in/itshukokay/"><img src="../public/img/linkedin-logo.png" alt="LinkedIn" style="height:14px;"></a> | <a href="mailto:mhuk@oakland.com">Contact</a>
+  </footer>
+
+</html>

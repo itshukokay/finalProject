@@ -13,16 +13,75 @@
         <h1>Motorsport Inventory</h1>
         <nav id="nav_bar">
             <menu>
-                <div><a href="./index">Home</a>| <a href="./staff">Staff</a> | <a href="./inventory">Inventory</a> | <a href="./results">Results</a> | <a href="./info">Information</a></div>
+                <div><a href="./index">Home</a> | <a href="./staff">Staff</a> | <a href="./inventory">Inventory</a> | <a href="./results">Results</a> | <a href="./info">Information</a></div>
             </menu>
         </nav>
     </header>
+<hr>
 
     <main>
-        <p>List of all staff and contact methods</p>
-        <br>
-        <p>May be database.</p>
+
+        <div class="container">
+            <h2>Staff</h2>
+            <p>Your system will include your own team information.<br>The following example database is populated with staff from the McLaren F1 Team.</p>
+            <hr>
+            <p>Click VIEW below to view all team and staff members:</p>
+            <div id="main" class="card card-body">
+              <form class="form-inline mb-3" action="/readstaff" method="get" id="CRUDread">
+                <input type="submit" value="VIEW" class="btn btn-dark" />
+              </form>
+            </div>
+          </div>
+
+        <div class="container">
+            <h3>New Staff Entry</h3>
+            <div id="main" class="card card-body">
+              <form class="form-inline mb-3" action="/insertstaff" method="post" id="CRUDcreate">
+                <label for="FName">First Name: </label>
+                <input type="text" name="FName" placeholder="Bruce" size="50" required autocomplete="off" class="form-control mr-2"/>
+                <br>
+                <label for="LName">Last Name: </label>
+                <input type="text" name="LName" placeholder="McLaren" size="50" required autocomplete="off" class="form-control mr-2"/>
+                <br>
+                <label for="Email">Staff Email: </label>
+                <input type="text" name="Email" placeholder="Enter Email" size="50" required autocomplete="off" class="form-control mr-2"/>
+                <br>
+                <label for="Dept">Staff Department: </label>
+                <input type="text" name="Dept" placeholder="(Driver, Mechanic, Developer)" size="50" required autocomplete="off" class="form-control mr-2"/>
+                <br>
+                <input type="submit" value="SUBMIT" class="btn btn-dark" />
+                <input type="reset" value="RESET" class="btn btn-dark" />
+              </form>
+            </div>
+          </div>
+
+          <div class="container">
+            <h3>Update Staff Email</h3>
+            <div id="main" class="card card-body">
+              <form action="/updatestaff" method="post" id="CRUDupdate" class="crud">
+                <label for="StaffID">Enter Staff ID: </label>
+                <input type="text" name="StaffID" placeholder="ID to update" size="50" required autocomplete="off" class="form-control mr-2"/>
+                <br>
+                <label for="staffNewEmailUpdate">Enter new email address: </label>
+                <input type="text" name="staffNewEmailUpdate" placeholder="example@mclaren.com" size="50" required autocomplete="off" class="form-control mr-2"/>
+                <br>
+                <input type="submit" value="SUBMIT" class="btn btn-dark" />
+                <input type="reset" value="RESET" class="btn btn-dark" />
+              </form>
+            </div>
+          </div>
+
     </main>
     
 </body>
+
+<br>
+<hr>
+
+    <footer>
+        &copy; Copyright: Michal Huk, 2021
+        <br>
+        <a href="https://www.linkedin.com/in/itshukokay/"><img src="../public/img/linkedin-logo.png" alt="LinkedIn" style="height: 14px;"></a> | <a href="mailto:mhuk@oakland.com">Contact</a>
+    </footer>
+
 </html>

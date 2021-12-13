@@ -13,18 +13,80 @@
         <h1>Motorsport Inventory</h1>
         <nav id="nav_bar">
             <menu>
-                <div><a href="./index">Home</a>| <a href="./staff">Staff</a> | <a href="./inventory">Inventory</a> | <a href="./results">Results</a> | <a href="./info">Information</a></div>
+                <div><a href="./index">Home</a> | <a href="./staff">Staff</a> | <a href="./inventory">Inventory</a> | <a href="./results">Results</a> | <a href="./info">Information</a></div>
             </menu>
         </nav>
     </header>
+    <hr>
+
 
     <main>
-        <p>Points and results for each race.</p>
-        <br>
-        <p>Track our own team as well as rivals</p>
-        <br>
-        <p>Possibly use caluclations to show margins against rivals.</p>
+        <div class="container">
+            <h2>Race Results</h2>
+            <p>Your system will include your own team standings.<br>The following example database is populated with results from Scuderia Ferrari and the 2021 Formula 1 World Championship.</p>
+            <hr>
+            <p>Click VIEW below to view results for the 2021 season:</p>
+            <div id="main" class="card card-body">
+              <form class="form-inline mb-3" action="/readresults" method="get" id="CRUDread">
+                <input type="submit" value="VIEW" class="btn btn-dark" />
+              </form>
+            </div>
+        </div>
+
+        <div class="container">
+            <h3>Update Results for Charles Leclerc</h3>
+            <div id="main" class="card card-body">
+              <form action="/updateresults16" method="post" id="CRUDupdate" class="crud">
+                <label for="raceID">Enter Race ID: </label>
+                <input type="text" name="raceID" placeholder="ID to update" size="25" required autocomplete="off" class="form-control mr-2"/>
+                <br>
+                <label for="quali16">Enter qualifying result: </label>
+                <input type="text" name="quali16" placeholder="20" size="25" required autocomplete="off" class="form-control mr-2"/>
+                <br>
+                <label for="race16">Enter race result: </label>
+                <input type="text" name="race16" placeholder="20" size="25" required autocomplete="off" class="form-control mr-2"/>
+                <br>
+                <label for="points16">Enter points results: </label>
+                <input type="text" name="points16" placeholder="25" size="25" required autocomplete="off" class="form-control mr-2"/>
+                <br>
+                <input type="submit" value="SUBMIT" class="btn btn-dark" />
+                <input type="reset" value="RESET" class="btn btn-dark" />
+              </form>
+            </div>
+          </div>
+
+          <div class="container">
+            <h3>Update Results for Carlos Sainz Jr.</h3>
+            <div id="main" class="card card-body">
+              <form action="/updateresults55" method="post" id="CRUDupdate" class="crud">
+                <label for="raceID">Enter Race ID: </label>
+                <input type="text" name="raceID" placeholder="ID to update" size="25" required autocomplete="off" class="form-control mr-2"/>
+                <br>
+                <label for="quali55">Enter qualifying result: </label>
+                <input type="text" name="quali55" placeholder="20" size="25" required autocomplete="off" class="form-control mr-2"/>
+                <br>
+                <label for="race55">Enter race result: </label>
+                <input type="text" name="race55" placeholder="20" size="25" required autocomplete="off" class="form-control mr-2"/>
+                <br>
+                <label for="points55">Enter points results: </label>
+                <input type="text" name="points55" placeholder="25" size="25" required autocomplete="off" class="form-control mr-2"/>
+                <br>
+                <input type="submit" value="SUBMIT" class="btn btn-dark" />
+                <input type="reset" value="RESET" class="btn btn-dark" />
+              </form>
+            </div>
+          </div>
     </main>
     
 </body>
+
+<br>
+<hr>
+
+    <footer>
+        &copy; Copyright: Michal Huk, 2021
+        <br>
+        <a href="https://www.linkedin.com/in/itshukokay/"><img src="../public/img/linkedin-logo.png" alt="LinkedIn" style="height: 14px;"></a> | <a href="mailto:mhuk@oakland.com">Contact</a>
+    </footer>
+
 </html>

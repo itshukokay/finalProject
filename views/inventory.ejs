@@ -13,14 +13,74 @@
         <h1>Motorsport Inventory</h1>
         <nav id="nav_bar">
             <menu>
-                <div><a href="./index">Home</a>| <a href="./staff">Staff</a> | <a href="./inventory">Inventory</a> | <a href="./results">Results</a> | <a href="./info">Information</a></div>
+                <div><a href="./index">Home</a> | <a href="./staff">Staff</a> | <a href="./inventory">Inventory</a> | <a href="./results">Results</a> | <a href="./info">Information</a></div>
             </menu>
         </nav>
     </header>
+    <hr>
 
     <main>
-        <p>Database for two cars.</p>
+        <div class="container">
+            <h2>Inventory</h2>
+            <p>Your system will include your own team information.<br>The following example database is populated with inventory from the Mercedes-AMG F1 Team.</p>
+            <hr>
+            <p>Click VIEW below to view all inventory:</p>
+            <div id="main" class="card card-body">
+              <form class="form-inline mb-3" action="/readinventory" method="get" id="CRUDread">
+                <input type="submit" value="VIEW" class="btn btn-dark" />
+              </form>
+            </div>
+          </div>
+
+          <div class="container">
+            <h3>New Part Entry</h3>
+            <div id="main" class="card card-body">
+              <form class="form-inline mb-3" action="/insertinventory" method="post" id="CRUDcreate">
+                <label for="PartCat">Category: </label>
+                <input type="text" name="PartCat" placeholder="(F-wing, R-wing, S-wheel, Tire Set, Chassis, or Power Unit)" size="50" required autocomplete="off" class="form-control mr-2"/>
+                <br>
+                <label for="PartCost">Cost: </label>
+                <input type="text" name="PartCost" placeholder="0.00" size="50" required autocomplete="off" class="form-control mr-2"/>
+                <br>
+                <label for="PartUse">Number of times used: </label>
+                <input type="text" name="PartUse" placeholder="0" size="50" required autocomplete="off" class="form-control mr-2"/>
+                <br>
+                <label for="CarAssign">Assign to car: </label>
+                <input type="text" name="CarAssign" placeholder="(44 or 77)" size="50" required autocomplete="off" class="form-control mr-2"/>
+                <br>
+                <input type="submit" value="SUBMIT" class="btn btn-dark" />
+                <input type="reset" value="RESET" class="btn btn-dark" />
+              </form>
+            </div>
+          </div>
+
+          <div class="container">
+            <h3>Update Part Usage</h3>
+            <div id="main" class="card card-body">
+              <form action="/updatepart" method="post" id="CRUDupdate" class="crud">
+                <label for="PartID">Enter Part ID: </label>
+                <input type="text" name="PartID" placeholder="ID to update" size="50" required autocomplete="off" class="form-control mr-2"/>
+                <br>
+                <label for="PartUse">Enter updated times used: </label>
+                <input type="text" name="PartUse" placeholder="Number of uses" size="50" required autocomplete="off" class="form-control mr-2"/>
+                <br>
+                <input type="submit" value="SUBMIT" class="btn btn-dark" />
+                <input type="reset" value="RESET" class="btn btn-dark" />
+              </form>
+            </div>
+          </div>
+
     </main>
     
 </body>
+
+<br>
+<hr>
+
+    <footer>
+        &copy; Copyright: Michal Huk, 2021
+        <br>
+        <a href="https://www.linkedin.com/in/itshukokay/"><img src="../public/img/linkedin-logo.png" alt="LinkedIn" style="height:14px;"></a> | <a href="mailto:mhuk@oakland.com">Contact</a>
+    </footer>
+
 </html>

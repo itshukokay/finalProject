@@ -10,7 +10,7 @@ const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "root123",
-  database: "project", // comment out if running example 1
+  database: "project",
 });
 
 // Establish connection with the DB
@@ -18,7 +18,7 @@ db.connect((err) => {
   if (err) {
     throw err;
   } else {
-    console.log(`Successful connected to the DB....`);
+    console.log(`Successful connected to the database.`);
   }
 });
 
@@ -48,48 +48,109 @@ app.get("/results", (req, res) => {
 });
 app.get("/staff", (req, res) => {
     res.render("staff");
+});
+
+//read staff
+app.get("/readstaff", (req, res) => {
+    let sql = `SELECT * FROM project.staff`;
+    db.query(sql, (err, result) => {
+        if (err) {
+            throw err;
+        }
+    res.render("readStaff", { data: result });
+  });
+});
+
+//read inventory
+app.get("/readinventory", (req, res) => {
+    let sql = `SELECT * FROM project.inventory`;
+    db.query(sql, (err, result) => {
+      if (err) {
+        throw err;
+      }
+      res.render("readInventory", { data: result });
+    });
+});
+
+//read results
+app.get("/readresults", (req, res) => {
+    let sql = `SELECT * FROM project.results`;
+    db.query(sql, (err, result) => {
+        if (err) {
+            throw err;
+        }
+    res.render("readResults", { data: result });
+  });
+});
+
+
+//add new part
+app.post("/insertinventory", (req, res) => {
+    let data = { PartCost: req.body.PartCost, PartCat: req.body.PartCat, PartUse: req.body.PartUse, CarAssign: req.body.CarAssign};
+    let sql = `INSERT INTO project.inventory SET ?`;
+    let query = db.query(sql, data, (err, result) => {
+      if (err) {
+        throw err;
+      }
+      res.send(`Part entry was inserted to the database. Click <a href="./../readInventory">here</a> to view all parts.`);
+    });
   });
 
-// app.post("/insertstudents", (req, res) => {
-//   let data = { name: req.body.studentName, email: req.body.studentEmail };
-//   let sql = `INSERT INTO students SET ?`;
-//   let query = db.query(sql, data, (err, result) => {
-//     if (err) {
-//       throw err;
-//     }
-//     res.send(`student entry was inserted to the db...`);
-//   });
-// });
+//update part use
+app.post("/updatepart", (req, res) => {
+    let sql = `UPDATE project.inventory SET PartUse = '${req.body.PartUse}'  WHERE PartID = ${req.body.PartID}`;
+    db.query(sql, (err, result) => {
+      if (err) {
+        throw err;
+      }
+      res.send(`Part entry was updated in the database. Click <a href="./readInventory">here</a> to view all parts.`);
+    });
+  });
 
-// app.post("/updatestudents", (req, res) => {
-//   let sql = `UPDATE students SET email = '${req.body.studentNewEmailUpdate}'  WHERE id = ${req.body.studentID}`;
-//   db.query(sql, (err, result) => {
-//     if (err) {
-//       throw err;
-//     }
-//     res.send(`student entry was updated in the db...`);
-//   });
-// });
+//add new staff member
+app.post("/insertstaff", (req, res) => {
+  let data = { FName: req.body.FName, LName: req.body.LName, Email: req.body.Email, Dept: req.body.Dept};
+  let sql = `INSERT INTO project.staff SET ?`;
+  let query = db.query(sql, data, (err, result) => {
+    if (err) {
+      throw err;
+    }
+    res.send(`Staff entry was inserted to the database. Click <a href="./../readStaff">here</a> to view all staff.`);
+  });
+});
 
-// app.post("/deletestudents", (req, res) => {
-//   let sql = `DELETE FROM students WHERE email = '${req.body.studentEmail}'`;
-//   db.query(sql, (err, result) => {
-//     if (err) {
-//       throw err;
-//     }
-//     res.send(`student entry was deleted in the db...`);
-//   });
-// });
+//update staff email
+app.post("/updatestaff", (req, res) => {
+  let sql = `UPDATE project.staff SET Email = '${req.body.staffNewEmailUpdate}'  WHERE StaffID = ${req.body.StaffID}`;
+  db.query(sql, (err, result) => {
+    if (err) {
+      throw err;
+    }
+    res.send(`Staff entry was updated in the database. Click <a href="./readStaff">here</a> to view all staff.`);
+  });
+});
 
-// app.get("/readstudents", (req, res) => {
-//   let sql = `SELECT * FROM students`;
-//   db.query(sql, (err, result) => {
-//     if (err) {
-//       throw err;
-//     }
-//     res.render("readData", { data: result });
-//   });
-// });
+//update race results for leclerc
+app.post("/updateresults16", (req, res) => {
+    let sql = `UPDATE project.results SET quali16 = '${req.body.quali16}', race16 = '${req.body.race16}', points16 = '${req.body.points16}' WHERE raceID = ${req.body.raceID}`;
+    db.query(sql, (err, result) => {
+        if (err) {
+            throw err;
+        }
+        res.send(`Results entry were updated in the database. Click <a href="./readResults">here</a> to view all results.`);
+    });
+});
+
+//update race results for sainz
+app.post("/updateresults55", (req, res) => {
+    let sql = `UPDATE project.results SET quali55 = '${req.body.quali55}', race55 = '${req.body.race55}', points55 = '${req.body.points55}' WHERE raceID = ${req.body.raceID}`;
+    db.query(sql, (err, result) => {
+        if (err) {
+            throw err;
+        }
+        res.send(`Results entry were updated in the database. Click <a href="./readResults">here</a> to view all results.`);
+    });
+});
 
 // Setup server ports
 const PORT = process.env.PORT || 3000;
